@@ -11,8 +11,8 @@
   --bg-card: #1a0033;
   --bg-hover: #2d0052;
   --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-tertiary: #808080;
+  --text-secondary: #b8b8ff;
+  --text-tertiary: #6b6b8f;
 }
 
 * {
@@ -65,6 +65,42 @@ code, pre {
 .neon-border {
   border: 2px solid var(--neon-cyan);
   box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+.bg-bg-base {
+  background-color: var(--bg-base);
+}
+
+.bg-bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.bg-bg-card {
+  background-color: var(--bg-card);
+}
+
+.bg-bg-hover {
+  background-color: var(--bg-hover);
+}
+
+.bg-neon-pink {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+}
+
+.text-text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-neon-cyan {
+  color: var(--neon-cyan);
+}
+
+.text-neon-green {
+  color: var(--neon-green);
 }
 
 @keyframes pulse-glow {

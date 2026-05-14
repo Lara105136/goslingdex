@@ -26,17 +26,15 @@ export default function MovieCard({
 }: MovieCardProps) {
   const extractPath = (url: string | null) => {
     if (!url) return null
-    // Se for URL completa do TMDB, extrai o path
     if (url.includes('/w500/')) {
       return url.split('/w500/')[1]
     }
-    // Se já for só o path
     return url
   }
 
   const posterPath = extractPath(movie.posterUrl)
   const proxyUrl = posterPath
-    ? `/api/poster?path=${encodeURIComponent(posterPath)}`
+    ? `/api/image?path=${encodeURIComponent(posterPath)}`
     : null
 
   return (
@@ -55,13 +53,12 @@ export default function MovieCard({
               alt={movie.title}
               className="w-full h-full object-cover"
               onError={(e) => {
-                // Se a imagem falhar, mostra ícone
                 ;(e.target as HTMLImageElement).style.display = 'none'
               }}
             />
           ) : null}
 
-          {/* Fallback se não tiver imagem */}
+          {/* Fallback */}
           <div
             className="absolute inset-0 bg-gradient-to-br from-neon-purple to-neon-pink flex items-center justify-center text-6xl"
             id={`fallback-${movie.id}`}
@@ -69,7 +66,7 @@ export default function MovieCard({
             🎬
           </div>
 
-          {/* Overlay ao hover */}
+          {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
             <button className="w-full bg-neon-cyan text-bg-base font-bold py-2 rounded">
               Ver Detalhes
@@ -97,7 +94,7 @@ export default function MovieCard({
             ))}
           </div>
 
-          {/* Rating do Usuário */}
+          {/* Rating */}
           {userRating && (
             <p className="text-neon-green font-mono text-lg font-bold mt-2">
               ⭐ {userRating}
