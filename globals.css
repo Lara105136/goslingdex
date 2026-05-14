@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(to bottom, #0a0014, #050008);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar customizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a0033;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8338ec;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d9ff;
+  box-shadow: 0 0 10px #00d9ff;
+}
+
+/* Seleção */
+::selection {
+  background: #ff006e;
+  color: #ffffff;
+}
+
+/* Úteis */
+.neon-border {
+  border: 2px solid #00d9ff;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5), inset 0 0 10px rgba(0, 217, 255, 0.1);
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px #ff006e, 0 0 20px #ff006e;
+}
+
+.bg-gradient-neon {
+  background: linear-gradient(135deg, #8338ec 0%, #ff006e 100%);
+}
+
+@keyframes neon-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.neon-pulse {
+  animation: neon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

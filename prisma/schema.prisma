@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String     @id @default(cuid())
+  email       String     @unique
+  username    String     @unique
+  avatarUrl   String?
+  level       Int        @default(1)
+  totalXp     Int        @default(0)
+  
+  ratings     Rating[]
+  stats       UserStats?
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Movie {
+  id          String     @id @default(cuid())
+  title       String
+  year        Int
+  director    String
+  posterUrl   String?
+  synopsis    String?    @db.Text
+  genres      String[]
+  runtime     Int?
+  
+  ratings     Rating[]
+  
+  createdAt   DateTime   @default(now())
+}
+
+model Rating {
+  id            String     @id @default(cuid())
+  movieId       String
+  userId        String
+  secretRating  Int
+  isSubmitted   Boolean    @default(false)
+  reviewText    String?    @db.Text
+  
+  movie         Movie      @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([movieId, userId])
+  createdAt     DateTime   @default(now())
+}
+
+model UserStats {
+  id            String     @id @default(cuid())
+  userId        String     @unique
+  moviesWatched Int        @default(0)
+  correctGuesses Int       @default(0)
+  avgRating     Float      @default(0)
+  
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  updatedAt     DateTime   @updatedAt
+}
