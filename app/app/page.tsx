@@ -27,10 +27,9 @@ export default function Home() {
     try {
       const res = await fetch('/api/filmes')
       const data = await res.json()
-      console.log('Filmes carregados:', data)
       setMovies(Array.isArray(data) ? data : [])
     } catch (error) {
-      console.error('Erro ao buscar filmes:', error)
+      console.error('Erro:', error)
       setMovies([])
     } finally {
       setLoading(false)
@@ -39,7 +38,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-bg-base to-bg-secondary p-6">
-      {/* Header */}
       <div className="mb-12">
         <h1 className="text-5xl font-bold text-white mb-2 neon-glow">
           🎬 Goslingdex
@@ -49,7 +47,6 @@ export default function Home() {
         </p>
       </div>
 
-      {/* User Cards */}
       <div className="grid grid-cols-2 gap-4 mb-12">
         {[1, 2].map((i) => (
           <div key={i} className="p-4 bg-bg-card rounded-lg neon-border">
@@ -65,14 +62,12 @@ export default function Home() {
         ))}
       </div>
 
-      {/* CTA Button */}
       <div className="mb-12">
         <NeonButton color="green" size="lg">
           🎬 Assistir Novo Filme
         </NeonButton>
       </div>
 
-      {/* Movies Grid */}
       <h2 className="text-2xl font-bold text-white mb-6">
         Filmes do Ryan Gosling
       </h2>

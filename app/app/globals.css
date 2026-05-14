@@ -41,7 +41,6 @@ code, pre {
   font-family: 'Fira Code', monospace;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -59,7 +58,6 @@ code, pre {
   background: var(--neon-pink);
 }
 
-/* Neon Glow */
 .neon-glow {
   text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-pink);
 }
@@ -69,7 +67,6 @@ code, pre {
   box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
 }
 
-/* Animações */
 @keyframes pulse-glow {
   0%, 100% {
     text-shadow: 0 0 10px var(--neon-cyan);
